@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-boilerplate",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "events": "^3.3.0",
+    "gsap": "file:gsap-bonus.tgz",
+    "normalize-wheel": "^1.0.1",
+    "nuxt": "^3.9.3",
+    "pinia": "^2.1.7",
+    "three": "^0.160.1",
+    "tweakpane": "^4.0.3",
+    "vue": "^3.4.15"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.17.3",
+    "@pinia/nuxt": "^0.5.1",
+    "@studio-freight/lenis": "^1.0.34",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/events": "^3.0.3",
+    "@types/node": "^20.11.8",
+    "@types/normalize-wheel": "^1.0.4",
+    "@types/three": "^0.160.0",
+    "@vite-pwa/nuxt": "^0.4.0",
+    "@vue/compiler-sfc": "^3.4.15",
+    "bidello": "^1.0.1",
+    "prettier": "^3.2.4",
+    "sass": "^1.70.0",
+    "stats.js": "^0.17.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vite-plugin-glsl": "^1.2.1",
+    "vue-tsc": "^1.8.27"
+  }
+}

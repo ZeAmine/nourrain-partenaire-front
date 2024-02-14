@@ -1,0 +1,20 @@
+@import './base/reset';
+
+@import './utils/mixins';
+@import './utils/theme';
+@import './utils/functions';
+@import './utils/vendors';
+
+@import './shared/grid';
+@import './shared/page';
+@import './shared/texts';
+@import './shared/link';
+
+@import './base/global';
+@import './base/fonts';
+
+@import './components/header';
+@import './components/preloader';
+
+@import './pages/home';
+@import './pages/about';

@@ -1,0 +1,37 @@
+/* Neue Montreal */
+
+@font-face {
+  font-family: theme($fonts, 'NeueMontreal');
+  src:
+    url('@/assets/fonts/NeueMontreal-Light.woff2') format('woff2'),
+    url('@/assets/fonts/NeueMontreal-Light.woff') format('woff');
+  font-weight: theme($weights, 'light');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: theme($fonts, 'NeueMontreal');
+  src:
+    url('@/assets/fonts/NeueMontreal-Regular.woff2') format('woff2'),
+    url('@/assets/fonts/NeueMontreal-Regular.woff') format('woff');
+  font-weight: theme($weights, 'regular');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: theme($fonts, 'NeueMontreal');
+  src:
+    url('@/assets/fonts/NeueMontreal-Medium.woff2') format('woff2'),
+    url('@/assets/fonts/NeueMontreal-Medium.woff') format('woff');
+  font-weight: theme($weights, 'medium');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: theme($fonts, 'NeueMontreal');
+  src:
+    url('@/assets/fonts/NeueMontreal-Bold.woff2') format('woff2'),
+    url('@/assets/fonts/NeueMontreal-Bold.woff') format('woff');
+  font-weight: theme($weights, 'bold');
+  font-style: normal;
+}

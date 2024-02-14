@@ -1,0 +1,23 @@
+@function theme($key, $value) {
+  @return map-get($key, $value);
+}
+
+@mixin from($screenName) {
+  @media screen and (min-width: map-get($screens, $screenName)) {
+    @content;
+  }
+}
+
+@mixin font-base($mobileSize, $desktopSize, $family, $lineHeight, $letterSpacing: 0, $weight: 'normal') {
+  font-family: theme($fonts, $family);
+  font-size: theme($sizes, $mobileSize);
+  font-weight: theme($weights, $weight);
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+
+  @if $desktopSize != null {
+    @include from('md') {
+      font-size: theme($fonts, $desktopSize);
+    }
+  }
+}

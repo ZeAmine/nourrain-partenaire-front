@@ -1,0 +1,37 @@
+@import '../utils/theme';
+
+%text {
+  &-10 {
+    @include font-base(10, 10, 'NeueMontreal', 1.2);
+  }
+  &-12 {
+    @include font-base(12, 12, 'NeueMontreal', 1.2);
+  }
+  &-14 {
+    @include font-base(14, 14, 'NeueMontreal', 1.2);
+  }
+  &-16 {
+    @include font-base(16, 16, 'NeueMontreal', 1.2);
+  }
+  &-18 {
+    @include font-base(18, 18, 'NeueMontreal', 1.2);
+  }
+  &-24 {
+    @include font-base(24, 24, 'NeueMontreal', 1.2);
+  }
+  &-32 {
+    @include font-base(32, 32, 'NeueMontreal', 1.2);
+  }
+  &-36 {
+    @include font-base(36, 36, 'NeueMontreal', 1.2);
+  }
+  &-42 {
+    @include font-base(42, 42, 'NeueMontreal', 1.2);
+  }
+  &-52 {
+    @include font-base(52, 52, 'NeueMontreal', 1.2);
+  }
+  &-100 {
+    @include font-base(100, 100, 'NeueMontreal', 1.2);
+  }
+}

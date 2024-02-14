@@ -1,0 +1,40 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding-top: 2rem;
+  pointer-events: none;
+  z-index: z('navigation');
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  a {
+    @extend %text-24;
+
+    font-weight: theme($weights, 'medium');
+    line-height: 100%;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+
+    &_item {
+      pointer-events: all;
+      cursor: pointer;
+
+      &:first-child {
+        margin-right: 30vw;
+      }
+    }
+  }
+}
