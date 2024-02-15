@@ -80,15 +80,15 @@ main {
 }
 
 section {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 4rem 0;
+  margin: 10vh 0;
   border: 1px solid blue;
 }
 
 .wrapper {
   height: 100%;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 [data-layer='top'] {

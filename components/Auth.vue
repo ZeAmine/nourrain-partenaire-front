@@ -66,7 +66,7 @@ async function onSubmit(event: Event) {
             v-model.trim="passwordConfirm"
             required
           />
-          <Button type="submit">{{ cta }}</Button>
+          <button type="submit">{{ cta }}</button>
         </form>
         <p class="block_text">
           By clicking continue, you agree to our <u> Terms of Service </u> <br />

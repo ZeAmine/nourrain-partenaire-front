@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <Auth type="login" />
+  <!-- <Auth type="login" /> -->
+  <GridList type="events" />
+  <!-- <EventList /> -->
 </template>

@@ -1,0 +1,54 @@
+.grid {
+  position: relative;
+
+  .title {
+    @extend %text-32;
+
+    font-weight: theme($weights, 'bold');
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    grid-row-gap: 2rem;
+    margin-top: 2rem;
+
+    .item {
+      display: block;
+      padding: 2.4rem;
+      border-radius: 1rem;
+      border: 1px solid #27272a;
+      background-color: transparent;
+
+      &_head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &_title {
+        @extend %text-16;
+
+        font-weight: theme($weights, 'medium');
+      }
+
+      &_description {
+        @extend %text-12;
+
+        margin-top: 2rem;
+        text-wrap: balance;
+      }
+
+      &_price {
+        @extend %text-18;
+
+        font-weight: theme($weights, 'medium');
+      }
+
+      &_cta {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+}
