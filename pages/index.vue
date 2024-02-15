@@ -1,36 +1,31 @@
 <script setup lang="ts">
-import { $root } from '@/composables/useRoot';
-import { useRouterStore } from '@/stores/router';
+const email = ref<string | undefined>()
+const password = ref<string | undefined>()
 
-const { currentRoute, previousRoute } = useRouterStore()
-
-const props = {
-  from: previousRoute,
-  to: currentRoute
+const validate = () => {
+  const errors = []
+  if (!email.value) errors.push({ path: 'email', message: 'Required' })
+  if (!password.value) errors.push({ path: 'password', message: 'Required' })
+  return errors
 }
 
-definePageMeta({
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-    css: false,
-    onLeave: async (el: HTMLElement, done: () => void) => {
-      await $root.pages?.transitionOut(el)
-      done()
-    },
-    onEnter: async (el: HTMLElement, done: () => void) => {
-      await $root.pages?.transitionIn(el)
-      done()
-    }
+async function onSubmit(event: Event) {
+  const errors = validate()
+  if (errors.length > 0) {
+    // handle errors
+    console.error(errors)
+  } else {
+    // Do something with data
+    console.log({ email: email.value, password: password.value })
   }
-})
+}
 </script>
 
 <template>
-  <section class="section">
-    <span data-a="word">HOME</span>
-    <span data-a="word">HOME</span>
-    <span data-a="word">HOME</span>
-    <span data-a="word">HOME</span>
-  </section>
+  <!-- <form @submit="onSubmit">
+    <input v-model="email" type="email" placeholder="Email" />
+    <input v-model="password" type="password" placeholder="Password" />
+    <button type="submit">Submit</button>
+  </form> -->
+  <Auth />
 </template>

@@ -3,38 +3,32 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 7rem;
   padding-top: 2rem;
   pointer-events: none;
   z-index: z('navigation');
 
-  .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-  }
-
   a {
     @extend %text-24;
 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-weight: theme($weights, 'medium');
     line-height: 100%;
+    margin: 0 auto;
     pointer-events: all;
     cursor: pointer;
   }
 
-  .nav {
-    display: flex;
-    align-items: center;
+  small {
+    @extend %text-10;
 
-    &_item {
-      pointer-events: all;
-      cursor: pointer;
-
-      &:first-child {
-        margin-right: 30vw;
-      }
-    }
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translate(0, -50%);
+    text-transform: uppercase;
   }
 }

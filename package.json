@@ -11,13 +11,11 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.13.0",
     "events": "^3.3.0",
     "gsap": "file:gsap-bonus.tgz",
-    "normalize-wheel": "^1.0.1",
     "nuxt": "^3.9.3",
     "pinia": "^2.1.7",
-    "three": "^0.160.1",
-    "tweakpane": "^4.0.3",
     "vue": "^3.4.15"
   },
   "devDependencies": {
