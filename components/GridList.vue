@@ -6,13 +6,16 @@ const props = defineProps({
   }
 })
 
-const title = computed(() => (props.type === 'offers' ? 'Offers' : 'Events'))
+const title = computed(() => (props.type === 'offers' ? 'Offres' : 'Evénements'))
 </script>
 
 <template>
   <section class="grid">
     <div class="wrapper">
-      <h2 class="title">{{ title }}</h2>
+      <div class="head">
+        <h2 class="head_title">{{ title }}</h2>
+        <p class="head_subtitle">Top picks for you. Updated daily.</p>
+      </div>
       <ul class="list">
         <li v-for="(item, index) of 6" class="item">
           <div class="item_head">
@@ -23,7 +26,7 @@ const title = computed(() => (props.type === 'offers' ? 'Offers' : 'Events'))
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum sunt nihil illo vel odio id distinctio maxime
             inventore.
           </p>
-          <button class="item_cta">View</button>
+          <button class="item_cta">Voir</button>
         </li>
       </ul>
     </div>

@@ -13,7 +13,6 @@ const cta = computed(() => (props.type === 'login' ? 'Connexion' : 'Inscription'
 const email = ref<string | undefined>()
 const password = ref<string | undefined>()
 const passwordConfirm = ref<string | undefined>()
-const errorMessage = ref<string | undefined>()
 
 const validate = () => {
   const errors = []
@@ -32,18 +31,33 @@ const validate = () => {
   }
 
   return errors.map((error) => {
-    errorMessage.value = error.message
     return error.message
   })
 }
 
-async function onSubmit(event: Event) {
-  event.preventDefault()
+async function onSubmit() {
   const errors = validate()
+
   if (errors.length > 0) {
-    console.error(errors)
-  } else {
-    console.log({ email: email.value, password: password.value })
+    return console.error(errors)
+  }
+
+  if (props.type === 'register') {
+    fetchAuth(props.type, 'http://localhost:5001/auth/register', {
+      name: 'test',
+      prenom: 'test',
+      adresse: 'test',
+      telephone: 'test',
+      email: email.value || '',
+      password: password.value || ''
+    })
+  }
+
+  if (props.type === 'login') {
+    fetchAuth(props.type, 'http://localhost:5001/auth/login', {
+      email: email.value || '',
+      password: password.value || ''
+    })
   }
 }
 </script>
@@ -56,7 +70,8 @@ async function onSubmit(event: Event) {
           <h1>{{ title }}</h1>
           <p>Entrez votre email et mot de passe pour vous {{ action }}.</p>
         </div>
-        <form class="block_form" @submit.prevent="onSubmit">
+        <form class="block_form">
+          <!-- <input type="text" placeholder="Nom" v-model.trim="email" required /> -->
           <input type="email" placeholder="Email" v-model.trim="email" required />
           <input type="password" placeholder="Mot de passe" v-model.trim="password" required />
           <input
@@ -66,7 +81,7 @@ async function onSubmit(event: Event) {
             v-model.trim="passwordConfirm"
             required
           />
-          <button type="submit">{{ cta }}</button>
+          <button type="submit" @click.prevent="onSubmit">{{ cta }}</button>
         </form>
         <p class="block_text">
           By clicking continue, you agree to our <u> Terms of Service </u> <br />

@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -8,16 +8,18 @@
   pointer-events: none;
   z-index: z('navigation');
 
+  .wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   a {
     @extend %text-24;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-weight: theme($weights, 'medium');
     line-height: 100%;
-    margin: 0 auto;
     pointer-events: all;
     cursor: pointer;
   }
@@ -25,10 +27,19 @@
   small {
     @extend %text-10;
 
-    position: absolute;
-    top: 50%;
-    left: 3rem;
-    transform: translate(0, -50%);
     text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  span {
+    @extend %text-10;
+
+    text-transform: uppercase;
+    pointer-events: all;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }

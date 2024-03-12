@@ -2,4 +2,6 @@
 
 ### Todo
 
-- [ ] Undefined
+- [ ] Style Button
+- [ ] Created Middleware
+- [ ] Fetch Offers / Events

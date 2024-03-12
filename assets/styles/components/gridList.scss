@@ -1,10 +1,24 @@
 .grid {
   position: relative;
 
-  .title {
-    @extend %text-32;
+  .head {
+    display: flex;
+    flex-direction: column;
+    // padding-bottom: 2rem;
+    // border-bottom: 1px solid rgba($color: #27272a, $alpha: 0.6);
 
-    font-weight: theme($weights, 'bold');
+    &_title {
+      @extend %text-32;
+
+      font-weight: theme($weights, 'bold');
+    }
+
+    &_subtitle {
+      @extend %text-12;
+
+      color: #a1a1aa;
+      margin-top: 0.5rem;
+    }
   }
 
   .list {
