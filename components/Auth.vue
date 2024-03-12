@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+
+const router = useRouter()
+
+const { authenticateUser } = useAuthStore()
+const { authenticated } = storeToRefs(useAuthStore())
+
 const props = defineProps({
   type: {
     type: String as PropType<'login' | 'register'>,
@@ -35,7 +42,7 @@ const validate = () => {
   })
 }
 
-async function onSubmit() {
+const onSubmit = async () => {
   const errors = validate()
 
   if (errors.length > 0) {
@@ -43,7 +50,7 @@ async function onSubmit() {
   }
 
   if (props.type === 'register') {
-    fetchAuth(props.type, 'http://localhost:5001/auth/register', {
+    await authenticateUser('http://localhost:5001/auth/register', {
       name: 'test',
       prenom: 'test',
       adresse: 'test',
@@ -51,13 +58,21 @@ async function onSubmit() {
       email: email.value || '',
       password: password.value || ''
     })
+
+    // redirect to login
+    router.push('/login')
   }
 
   if (props.type === 'login') {
-    fetchAuth(props.type, 'http://localhost:5001/auth/login', {
+    await authenticateUser('http://localhost:5001/auth/login', {
       email: email.value || '',
       password: password.value || ''
     })
+
+    // redirect to dashboard if user is authenticated
+    if (authenticated) {
+      router.push('/dashboard')
+    }
   }
 }
 </script>
@@ -81,7 +96,7 @@ async function onSubmit() {
             v-model.trim="passwordConfirm"
             required
           />
-          <button type="submit" @click.prevent="onSubmit">{{ cta }}</button>
+          <button @click.prevent="onSubmit">{{ cta }}</button>
         </form>
         <p class="block_text">
           By clicking continue, you agree to our <u> Terms of Service </u> <br />

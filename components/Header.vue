@@ -1,31 +1,24 @@
 <script setup lang="ts">
-import useAuth from '@/composables/useAuth'
+import { storeToRefs } from 'pinia'
 
-const { isAuth, setIsAuth } = useAuth()
+const router = useRouter()
 
-let navText = computed(() => (isAuth.value ? 'Se déconnecter' : 'Se connecter'))
+const { logUserOut } = useAuthStore()
+const { authenticated } = storeToRefs(useAuthStore()) // make authenticated state reactive
 
-watchEffect(() => {
-  console.log('isAuth changed', isAuth.value)
-
-  if (isAuth.value) {
-    navText.value = 'Se déconnecter'
-    const nav = document.querySelector('.header span')
-
-    nav?.addEventListener('click', () => {
-      document.cookie = 'token='
-      setIsAuth(false)
-    })
-  }
-})
+const logout = () => {
+  logUserOut()
+  router.push('/login')
+}
 </script>
 
 <template>
   <header class="header">
     <div class="wrapper">
       <small>Application Partenaire</small>
-      <nuxt-link href="/">Le Nourrain</nuxt-link>
-      <a href="/login">{{ navText }}</a>
+      <nuxt-link href="/dashboard">Le Nourrain</nuxt-link>
+      <nuxt-link v-if="!authenticated" to="/login">Se connecter</nuxt-link>
+      <nuxt-link v-else @click="logout">Se deconnecter</nuxt-link>
     </div>
   </header>
 </template>

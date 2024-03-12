@@ -31,7 +31,7 @@
     opacity: 0.5;
   }
 
-  span {
+  a:last-child {
     @extend %text-10;
 
     text-transform: uppercase;
