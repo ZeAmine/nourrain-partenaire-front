@@ -12,16 +12,12 @@ export default defineNuxtRouteMiddleware((to) => {
     return navigateTo('/dashboard')
   }
 
-  if (token.value && to?.name === 'login') {
-    return navigateTo('/dashboard')
-  }
-
-  if (token.value && to?.name === 'register') {
+  if (token.value && to?.name !== 'dashboard') {
     return navigateTo('/dashboard')
   }
 
   // if token doesn't exist redirect to log in
-  if (!token.value && to?.name !== 'login') {
+  if (!token.value && to?.name === 'dashboard') {
     abortNavigation()
     return navigateTo('/login')
   }

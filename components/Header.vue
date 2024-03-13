@@ -16,8 +16,11 @@ const logout = () => {
   <header class="header">
     <div class="wrapper">
       <small>Application Partenaire</small>
-      <nuxt-link href="/dashboard">Le Nourrain</nuxt-link>
-      <nuxt-link v-if="!authenticated" to="/login">Se connecter</nuxt-link>
+      <nuxt-link href="/dashboard" class="logo">Le Nourrain</nuxt-link>
+      <div v-if="!authenticated">
+        <nuxt-link to="/login">Se connecter</nuxt-link>
+        <nuxt-link to="/register">S'inscrire</nuxt-link>
+      </div>
       <nuxt-link v-else @click="logout">Se deconnecter</nuxt-link>
     </div>
   </header>

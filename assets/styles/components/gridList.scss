@@ -37,7 +37,6 @@
 
       &_head {
         display: flex;
-        align-items: center;
         justify-content: space-between;
       }
 
@@ -62,6 +61,8 @@
 
       &_cta {
         margin-top: 2.5rem;
+        color: theme($colors, 'white');
+        background-color: theme($colors, 'black');
       }
     }
   }

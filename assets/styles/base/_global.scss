@@ -18,8 +18,8 @@ body {
 
   width: 100%;
   height: 100%;
-  color: theme($colors, 'white');
-  background: theme($colors, 'black');
+  color: theme($colors, 'black');
+  background: theme($colors, 'white');
   overscroll-behavior: none;
 }
 

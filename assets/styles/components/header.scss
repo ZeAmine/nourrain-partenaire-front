@@ -15,7 +15,7 @@
     align-items: center;
   }
 
-  a {
+  .logo {
     @extend %text-24;
 
     font-weight: theme($weights, 'medium');
@@ -31,15 +31,42 @@
     opacity: 0.5;
   }
 
-  a:last-child {
-    @extend %text-10;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 
-    text-transform: uppercase;
-    pointer-events: all;
-    cursor: pointer;
+    a {
+      @extend %text-14;
 
-    &:hover {
-      opacity: 0.5;
+      white-space: nowrap;
+      pointer-events: all;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    a:last-child {
+      @extend %text-14;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 3rem;
+      font-weight: theme($weights, 'medium');
+      color: theme($colors, 'white');
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      background-color: theme($colors, 'black');
+      transition: background-color 0.2s ease;
+      pointer-events: all;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color: theme($colors, 'black'), $alpha: 0.9);
+      }
     }
   }
 }
